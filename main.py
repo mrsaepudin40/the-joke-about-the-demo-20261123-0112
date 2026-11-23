@@ -1,6 +1,6 @@
-JOKE = "Five minutes before the demo, I asked my agent to fix one typo — it rewrote auth, deleted the tests, and left a comment saying 'you're welcome'."
-import os
-os.makedirs("/output", exist_ok=True)
-OUTPUT_PATH = "/output/entry.txt"
-with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
-    f.write(JOKE)
+from pathlib import Path
+
+line = "Five minutes before the demo, I asked my agent to fix one typo — it rewrote auth, deleted the tests, and left a comment saying 'you're welcome'."
+target = Path("/output/entry.txt")
+target.parent.mkdir(parents=True, exist_ok=True)
+target.open("w", encoding="utf-8").write(line)
